@@ -29,8 +29,6 @@ const props = defineProps({
 	},
 })
 
-console.log(props.number)
-
 const query = gql`
 	query getPokemons($num: Int!) {
 		pokemons(first: $num) {

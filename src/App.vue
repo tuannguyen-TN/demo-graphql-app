@@ -18,7 +18,7 @@ const href = new URL(location.href).href
 
 const num = computed((): number => {
 	const splits = href.split('/')
-	return Number(splits[splits.length - 1])
+	return isNaN(Number(splits[splits.length - 1])) ? 0 : Number(splits[splits.length - 1])
 })
 </script>
 
