@@ -38,6 +38,7 @@ yarn dev
 When visited for the first time, the app shows no Pokemon, as there is no argument for the component to render any.
 
 Therefore, you can add a number after the end of URL, behind the last /, and the page will render that number of Pokemons.
+NOTE: If you enter a negative number, it will work in the opposite way. As for -1, the app displays all the Pokemon there are from the GraphQL entry point.
 
 ## Vue 3 + TypeScript + Vite
 
