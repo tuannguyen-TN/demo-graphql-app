@@ -3,7 +3,7 @@
 		<img src="/pokeball.svg" class="logo" alt="Pokeball logo" />
 	</div>
 
-	<h1>Welcome to Pokemon GraphQL</h1>
+	<h1>Welcome to GraphQL Pokemon App</h1>
 
 	<h1>Number of Pokemons: {{ num }}</h1>
 
