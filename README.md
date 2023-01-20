@@ -2,7 +2,42 @@
 
 ## Introduction to GraphQL
 
-## GraphQL Demonstration
+GraphQL is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+
+Instead of fetching everything there is to offer like we usually do with REST APIs, now with GraphQL, only a single entry point is in use, then the data is queried and fetched through describing its schema that mirrors its return shape in JSON.
+
+## GraphQL Pokemon Demonstration
+
+In this application, using a powerful combination of Vue 3 + TypeScript + Vite, I am going to demonstrate how to apply GraphQL to a Vue application, as well as how to write GraphQL queries to get data.
+
+To run GraphQL queries with Vue 3, there are some libraries that need installing beforehand. Make sure to check out first [GraphQL](https://graphql.org/) and [Vue Apollo](https://v4.apollo.vuejs.org/).
+
+For the GraphQL endpoint, this [GraphiQL](https://graphql-pokemon2.vercel.app/) is utilized.
+
+## How to run
+
+Clone the repo onto local machine
+
+```
+git clone https://github.com/tuannguyen-TN/demo-graphql-app.git
+```
+
+Get into the repo folder, and install the dependencies
+
+```
+cd demo-graphql-app/
+yarn install
+```
+
+When finished, run the application on localhost
+
+```
+yarn dev
+```
+
+When visited for the first time, the app shows no Pokemon, as there is no argument for the component to render any.
+
+Therefore, you can add a number after the end of URL, behind the last /, and the page will render that number of Pokemons.
 
 ## Vue 3 + TypeScript + Vite
 
