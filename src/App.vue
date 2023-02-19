@@ -5,9 +5,9 @@
 
 	<h1>Welcome to GraphQL Pokemon App</h1>
 
-	<h1>Number of Pokemons: {{ num }}</h1>
+	<h1>Number of Pokemons: {{ fetchArguments.numPokemon }}</h1>
 
-	<PokemonList :number="num" />
+	<PokemonList :number="fetchArguments.numPokemon" :name="fetchArguments.pokemonName" />
 </template>
 
 <script setup lang="ts">
@@ -16,9 +16,22 @@ import PokemonList from './components/PokemonList.vue'
 
 const href = new URL(location.href).href
 
-const num = computed((): number => {
-	const splits = href.split('/')
-	return isNaN(Number(splits[splits.length - 1])) ? 0 : Number(splits[splits.length - 1])
+const fetchArguments = computed((): {numPokemon: number, pokemonName: string} => {
+	let num: number = 0
+	let name: string = ''
+
+	const args = href.split('/').slice(-2)
+	if (args[0] == 'list' && !isNaN(Number(args[1]))) {
+		num = Number(args[1])
+	} else if (args[0] == 'search' && args[1]) {
+		num = 1
+		name = args[1]
+	}
+
+	return {
+		numPokemon: num,
+		pokemonName: name
+	}
 })
 </script>
 

@@ -25,11 +25,14 @@ import { Pokemon } from '../types'
 
 const props = defineProps({
 	number: {
-		type: Number as PropType<number | null>,
+		type: Number,
 	},
+	name: {
+		type: String,
+	}
 })
 
-const query = gql`
+const listQuery = gql`
 	query getPokemons($num: Int!) {
 		pokemons(first: $num) {
 			id
@@ -41,18 +44,34 @@ const query = gql`
 	}
 `
 
-const { result, loading, error } = useQuery(query, {
-	num: props.number,
+const searchQuery = gql`
+	query getPokemon($name: String) {
+		pokemon(name: $name) {
+			id
+			name
+			classification
+			types
+			image
+		}
+	}
+`
+
+const { result, loading, error } = props.name ? useQuery(searchQuery, {
+	name: props.name
+}) : useQuery(listQuery, {
+	num: props.number
 })
 
 const pokemons = computed((): Pokemon[] => {
 	const list: Pokemon[] = []
 
-	result.value?.pokemons.forEach((element: any) => {
-		const name = element.name
-		const classification = element.classification
-		const types = element.types
-		const image = element.image
+	const resultList = props.name ? [result.value?.pokemon] : result.value?.pokemons
+
+	resultList?.forEach((element: any) => {
+		const name = element?.name
+		const classification = element?.classification
+		const types = element?.types
+		const image = element?.image
 		list.push({ name, classification, types, image })
 	})
 
