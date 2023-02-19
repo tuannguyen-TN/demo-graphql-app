@@ -14,6 +14,20 @@ To run GraphQL queries with Vue 3, there are some libraries that need installing
 
 For the GraphQL endpoint, this [GraphiQL](https://graphql-pokemon2.vercel.app/) is utilized.
 
+### Application Endpoints
+
+For this GraphQL demo application, I implemented two endpoints to list the pokemons with desired arguments: List Pokemons ans Search a Pokemon.
+
+In order to save time, routing was not developed. Instead, I took the URL and split the arguments from it. There are slashes '/' in the URL and arguments for query are the last two elements of the URL split by slashes.
+
+- /list/\<number-of-pokemons>: rendering a list of Pokemons according to the number given after the endpoint.
+  ![list example](/public/list_example.png)
+
+- /search/\<name-of-pokemons>: looking up a specfic Pokemon from the Pokemon list using the name of a Pokemon.
+  ![list example](/public/search_example.png)
+
+Missing any required arguments of any of the endpoints results in only rendering 0 pokemons, not prompting any errors on the page.
+
 ## How to run
 
 Clone the repo onto local machine
@@ -34,11 +48,6 @@ When finished, run the application on localhost
 ```
 yarn dev
 ```
-
-When visited for the first time, the app shows no Pokemon, as there is no argument for the component to render any.
-
-Therefore, you can add a number after the end of URL, behind the last /, and the page will render that number of Pokemons.
-NOTE: If you enter a negative number, it will work in the opposite way. As for -1, the app displays all the Pokemon there are from the GraphQL entry point.
 
 ## Vue 3 + TypeScript + Vite
 
