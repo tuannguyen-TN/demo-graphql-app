@@ -12,7 +12,13 @@ In this application, using a powerful combination of Vue 3 + TypeScript + Vite, 
 
 To run GraphQL queries with Vue 3, there are some libraries that need installing beforehand. Make sure to check out first [GraphQL](https://graphql.org/) and [Vue Apollo](https://v4.apollo.vuejs.org/).
 
-For the GraphQL endpoint, this [GraphiQL](https://graphql-pokemon2.vercel.app/) is utilized.
+For the GraphQL endpoint, this [GraphiQL](https://graphql-pokemon2.vercel.app/) is utilized. Here is the diagram of how the GraphQL API works:
+![graphql diagram](/public/relation_view.png)
+
+Apparently, there are 2 types of queries to try out: pokemons and pokemon.
+
+- pokemons query: the number of Pokemons is required upfront to query that many Pokemons for client use.
+- pokemon query: arguments can be either id, or name, or both id and name, which means both of them are optional, but one of them must be present in the argument set.
 
 ### Application Endpoints
 
